@@ -1,0 +1,30 @@
+cd pem folder
+paste ssh
+
+sudo apt update
+sudo apt-get install docker.io
+sudo apt install git
+sudo apt install nano
+>>if normal
+git clone https://github.com/Aakash-i2/AWS.git
+cd aws
+nano Dockerfile
+
+FROM nginx:alpine
+COPY . /usr/share/nginx/html
+>>if maven
+https://github.com/Aakash-i2/A-_selab.git
+master branch
+nano Dockerfile
+
+FROM tomcat:9-jdk11
+COPY target/*.war /usr/local/tomcat/webapps
+
+sudo docker build-t mywebapp .
+sudo docker run -d -p 80:80 mywebapp
+sudo docker stop cid
+>>>ifnot working
+goto security  and Click on security groups
+
+
+as 9090 and 0.0.0.0/0 click on save
