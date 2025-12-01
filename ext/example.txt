@@ -1,6 +1,5 @@
 cd pem folder
 paste ssh key
-
 sudo apt update
 sudo apt-get install docker.io
 sudo apt install git
