@@ -1,0 +1,108 @@
+mkdir compose-lab
+cd compose-lab
+  //docker-compose.yml
+echo "version: \"3.9\"
+services:
+  web:
+    image: nginx:latest
+    ports:
+      - \"8080:80\"
+
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: demo
+      POSTGRES_PASSWORD: demo
+      POSTGRES_DB: demo_db" > docker-compose.yml
+docker compose up -d
+http://localhost:8080
+//redis
+echo "version: \"3.9\"
+services:
+  web:
+    image: nginx:latest
+    ports:
+      - \"8080:80\"
+    depends_on:
+      - redis
+      - db
+
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: demo
+      POSTGRES_PASSWORD: demo
+      POSTGRES_DB: demo_db
+
+  redis:
+    image: redis:alpine" > docker-compose.yml
+docker compose up -d
+docker compose ps
+zip -r compose-lab.zip compose-lab
+//new machine
+      //add networks and volumes
+docker compose up -d
+      networks:
+  app-net:
+
+volumes:
+  db-data:
+
+services:
+  web:
+    image: nginx:latest
+    ports:
+      - "8080:80"
+    networks:
+      - app-net
+    depends_on:
+      - db
+
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: demo
+      POSTGRES_PASSWORD: demo
+      POSTGRES_DB: demo_db
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    networks:
+      - app-net
+
+//stop docker compose down
+
+        //start -docker compose up -d
+//flask app.py
+        echo "from flask import Flask
+app = Flask(__name__)
+@app.route('/')
+def home():
+    return 'Hello from Flask + Docker!'
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000)" > app.py
+
+      //Dockerfile
+      echo "FROM python:3.10-slim
+WORKDIR /app
+COPY app.py /app/
+RUN pip install flask
+CMD [\"python\", \"app.py\"]" > Dockerfile
+//Docker-compose.yml
+     echo "version: \"3.9\"
+
+services:
+  web:
+    build: .
+    ports:
+      - \"5000:5000\"
+
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: demo
+      POSTGRES_PASSWORD: demo
+      POSTGRES_DB: demo_db" > docker-compose.yml
+//run 
+     docker compose up --build
+//visit http://localhost:5000
+docker compose down
