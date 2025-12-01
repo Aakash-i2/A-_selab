@@ -1,5 +1,5 @@
 cd pem folder
-paste ssh
+paste ssh key
 
 sudo apt update
 sudo apt-get install docker.io
