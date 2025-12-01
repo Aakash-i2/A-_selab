@@ -14,6 +14,7 @@ FROM nginx:alpine
 COPY . /usr/share/nginx/html
 >>if maven
 https://github.com/Aakash-i2/A-_selab.git
+https://github.com/Gayathri2608-hub/maven-practice.git
 master branch
 nano Dockerfile
 
