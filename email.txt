@@ -1,0 +1,22 @@
+app passwords
+16 digit
+>>configure
+email notif sec
+Field	Value
+SMTP Server ||	smtp.gmail.com
+Use SMTP Auth||	Enabled
+User Name||	Your Gmail ID (e.g., archanareddykmit@gmail.com)
+Password	|| Paste the 16-digit App Password
+Use SSL	 Enabled
+SMTP Port||	465
+Reply-To Address	|| Your Gmail ID (same as above)
+
+>>extended email
+Field	Value
+SMTP Server ||	smtp.gmail.com
+SMTP Port||	465
+Use SSL	|| Enabled
+Credentials	||Add Gmail ID and App Password as Jenkins credentials
+Default Content Type	|| text/html or leave default
+Default Recipients||	 Leave empty or provide default emails
+Triggers ||	Select as per needs (e.g., Failure)
